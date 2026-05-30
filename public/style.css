@@ -4,9 +4,9 @@
 		'Helvetica Neue', sans-serif;
 
 	--width-container: 100%;
-  --bg-page: #0d1117;
+	--bg-page: #0d1117;
 
-  --height-header: 120px;
+	--height-header: 120px;
 
 	--white-rgb: 255, 255, 255;
 	--black-rgb: 0, 0, 0;
@@ -30,8 +30,6 @@
 ::-webkit-scrollbar-thumb:hover {
 	background-color: rgba(var(--white-rgb), 0.32);
 }
-
-
 
 *,
 *::before,
@@ -79,7 +77,7 @@ body {
 
 	.container-fondo-imagen {
 		position: absolute;
-    inset: 0;
+		inset: 0;
 
 		img {
 			width: 180px;
@@ -94,7 +92,7 @@ body {
 	max-width: 800px;
 
 	display: flex;
-	align-items:flex-end;
+	align-items: flex-end;
 	justify-content: end;
 
 	input {
@@ -114,9 +112,7 @@ body {
 		outline-style: solid;
 		outline-width: 1px;
 	}
-
 }
-
 
 .table-container {
 	width: 100%;
@@ -168,38 +164,42 @@ tr.group-color {
 	background-color: #283546;
 }
 
-
-tr.group-color:hover, tr:hover {
+tr.group-color:hover,
+tr:hover {
 	background-color: #202934;
 }
 
+.date-short {
+	display: none;
+}
 
 /* FECHA*/
 :is(td, th):nth-child(1) {
-    width: 200px;
-    white-space: nowrap;
-    
-    /* Fijar columna */
-    position: sticky;
-    left: -1px;
-    z-index: 2;
-    background-color: var(--bg-page);
+	width: 200px;
+	white-space: nowrap;
+
+	/* Fijar columna */
+	position: sticky;
+	left: -1px;
+	z-index: 2;
+	background-color: var(--bg-page);
+	box-shadow: 6px 0 8px rgba(0, 0, 0, 0.7);
 }
 
 /* Asegurar que el encabezado de la fecha esté por encima de todo */
 thead th:nth-child(1) {
-    z-index: 3;
+	z-index: 3;
 }
 
 /* Mantener los colores de las filas especiales en la columna fija */
 tr.group-color td:nth-child(1) {
-    background-color: #283546;
+	background-color: #283546;
 }
 
 /* Mantener el efecto hover en la columna fija */
-tr.group-color:hover td:nth-child(1), 
+tr.group-color:hover td:nth-child(1),
 tr:hover td:nth-child(1) {
-    background-color: #202934;
+	background-color: #202934;
 }
 
 /* HORA*/
@@ -246,7 +246,7 @@ tr:hover td:nth-child(1) {
 
 /* AJUSTES PARA CELULARES */
 @media (max-width: 600px) {
-	.container-fondo-imagen{
+	.container-fondo-imagen {
 		display: none;
 	}
 
@@ -261,9 +261,18 @@ tr:hover td:nth-child(1) {
 	}
 
 	/* Permitimos que la fecha use dos líneas si es necesario para ahorrar espacio horizontal */
-	:is(td, th):nth-child(1) {
-		width: 120px;
-		white-space: normal;
+	tbody td:nth-child(1) {
+		width: 70px;
+		min-width: 70px;
+	}
+
+	.date-full {
+		display: none;
+	}
+
+	.date-short {
+		display: inline-block;
+		text-transform: capitalize;
 	}
 
 	/* Ocultamos la columna JORNADA en móviles */
