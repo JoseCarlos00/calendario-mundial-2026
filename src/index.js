@@ -1,3 +1,3 @@
 import { main } from "./insertFlags.js";
 
-window.addEventListener('load', main);
+// window.addEventListener('load', main);
