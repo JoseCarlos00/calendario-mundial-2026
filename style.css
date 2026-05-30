@@ -3,7 +3,28 @@
 		system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 		'Helvetica Neue', sans-serif;
 
-  --width-container: 800px;
+	--width-container: 800px;
+  --bg-page: #0d1117;
+
+  --height-header: 120px;
+
+	--white-rgb: 255, 255, 255;
+	--black-rgb: 0, 0, 0;
+}
+
+/* Scrollbar delgado y transparente */
+::-webkit-scrollbar {
+	width: 4px;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(var(--white-rgb), 0.16);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--white-rgb), 0.16);
+	border-radius: 20px;
 }
 
 *,
@@ -11,7 +32,6 @@
 *::after {
 	box-sizing: border-box;
 }
-
 
 body {
 	font-family: var(--font-family-global);
@@ -28,7 +48,7 @@ body {
 	width: 100%;
 	height: 100%;
 
-  margin: 20px 0 50px 0;
+	margin: 20px 0 50px 0;
 
 	display: flex;
 	flex-direction: column;
@@ -37,64 +57,66 @@ body {
 	background-color: #010409;
 }
 
-.text-white {
-	color: #f0f6fc;
-}
-
-.title_table {
-	font-size: 2.7em;
-	color: #010409;
-}
-
-.page-body {
+.table-container {
 	width: var(--width-container);
-	background-color: #0d1117;
+	background-color: var(--bg-page);
+	border-radius: 4px;
+
+	height: calc(100vh - 50px - var(--height-header));
+	overflow-y: auto;
 }
 
 table.simple-table {
 	top: 145px;
 	text-align: center;
 	width: 100%;
-  border-collapse: collapse;
+	border-collapse: collapse;
 
-  border: 1px solid #3d444d;
-  border-radius: 4px
+	border: 1px solid #3d444d;
+	border-radius: 4px;
 }
 
 th,
 td {
 	margin: 0;
 	padding: 0;
-}
 
-th {
-	font-size: 1em;
-	width: fit-content;
-}
-
-td {
-	font-size: 0.94em;
 	padding: 0.28em;
 }
 
-td img {
-	width: 28px;
+thead th {
+	font-size: 1em;
+	width: fit-content;
+
+	position: sticky;
+	top: -1px;
+	background-color: var(--bg-page);
+	z-index: 1;
 }
 
-tr.group-color, tr.group-color td {
-  background-color: #283546;
+tbody td {
+	font-size: 0.88em;
+
+	img {
+		width: 28px;
+	}
+}
+
+tr.group-color,
+tr.group-color td {
+	background-color: #283546;
 }
 
 /* FECHA*/
 :is(td, th):nth-child(1) {
 	width: 200px;
-  white-space: nowrap
+	white-space: nowrap;
 }
 
 /* HORA*/
 :is(td, th):nth-child(2) {
-  width: 90px;
-  white-space: nowrap
+	width: 90px;
+	white-space: nowrap;
 }
 
 /* JORNADA*/
@@ -111,7 +133,7 @@ tr.group-color, tr.group-color td {
 :is(td, th):nth-child(5),
 :is(td, th):nth-child(9) {
 	width: 180px;
-  white-space: nowrap
+	white-space: nowrap;
 }
 
 /* 1IMG*/
@@ -130,79 +152,78 @@ tr.group-color, tr.group-color td {
 	overflow: hidden;
 
 	width: var(--width-container);
-	height: 120px;
+	height: var(--height-header);
 
 	display: flex;
 
-  align-items: flex-start;
-  justify-content: center;
-
+	align-items: flex-start;
+	justify-content: center;
 
 	.container-fondo-imagen {
 		width: 100%;
 		height: 100%;
 
-    flex: 0;
+		flex: 0;
 
 		img {
-			width:180px;
-      border-radius: 4px;
+			width: 180px;
+			border-radius: 4px;
 		}
 	}
 
-  .title-page {
-    flex: 1;
+	.title-page {
+		flex: 1;
 
-    width: 100%;
-    height: 100%;
+		width: 100%;
+		height: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
-
 @media print {
-  body {
-    margin: 0;
-    padding: 0;
-    color: #000;
-  }
+	body {
+		margin: 0;
+		padding: 0;
+		color: #000;
+	}
 
-  .container-principal {
-    margin: 0;
-    padding: 0;
-  }
+	.container-principal {
+		margin: 0;
+		padding: 0;
+	}
 
-  .page-body {
-    margin: 0;
-    padding: 0;
-  }
+	.table-container {
+		margin: 0;
+		padding: 0;
+	}
 
-  table.simple-table {
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse;
-  }
+	table.simple-table {
+		margin: 0;
+		padding: 0;
+		border-collapse: collapse;
+	}
 
-  th,
-  td {
-    margin: 0;
-    padding: 0;
-  }
+	th,
+	td {
+		margin: 0;
+		padding: 0;
+	}
 
-  th {
-    font-size: 0.91em;
-    letter-spacing: 0.0003em;
-  }
+	th {
+		font-size: 0.91em;
+		letter-spacing: 0.0003em;
+	}
 
-  td {
-    font-size: 0.84em;
-    padding: 0.2em;
-  }
+	td {
+		font-size: 0.84em;
+		padding: 0.2em;
+	}
 
-  tr.group-color, tr.group-color td {
-    background-color: #283546;
-  }
+	tr.group-color,
+	tr.group-color td {
+		background-color: #283546;
+	}
 }
