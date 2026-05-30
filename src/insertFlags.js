@@ -1,10 +1,10 @@
 import { countries } from './countries.js';
 
-const VERSUS_SELECTOR = 'td:nth-child(5)';
-const CONTRA_SELECTOR = 'td:nth-child(9)';
+const VERSUS_INDEX = 4;
+const CONTRA_INDEX = 8;
 
-const VERSUS_E_SELECTOR = 'td:nth-child(6)';
-const CONTRA_E_SELECTOR = 'td:nth-child(8)';
+const VERSUS_E_INDEX = 5;
+const CONTRA_E_INDEX = 7;
 
 function getFlag(countryName) {
 	const code = countries[countryName.toLowerCase()];
@@ -35,12 +35,13 @@ function insertFlag(element, country) {
 export  function main() {
 	const rows = document.querySelectorAll('tbody tr');
 
-	rows.forEach((tr) => {
-		const versusValue = tr.querySelector(CONTRA_SELECTOR)?.textContent;
-		const contraValue = tr.querySelector(VERSUS_SELECTOR)?.textContent;
+	rows.forEach((row) => {
+		const versusValue = row.cells[VERSUS_INDEX]?.textContent;
+		const contraValue = row.cells[CONTRA_INDEX]?.textContent;
 
-		const versusValueE = tr.querySelector(CONTRA_E_SELECTOR);
-		const contraValueE = tr.querySelector(VERSUS_E_SELECTOR);
+
+		const versusValueE = row.cells[VERSUS_E_INDEX];
+		const contraValueE = row.cells[CONTRA_E_INDEX];
 
 		if (!versusValue || !contraValue || !versusValueE || !contraValueE) return;
 

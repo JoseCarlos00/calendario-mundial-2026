@@ -14,17 +14,17 @@
 		<div class="container-principal">
 	
 			<div class="container-title">
-	
 				<div class="container-fondo-imagen">
 					<img src="./public/fondo.jpg" alt="fondo">
 				</div>
 	
-				<div class="title-page">
-					<h1>Calendario Mundial 2026</h1>
-				</div>
-	
+				<h1>Calendario Mundial 2026</h1>
 			</div>
-	
+
+			<div class="filters-container">
+				<input type="search" name="country" id="country" placeholder="Buscar país...">
+			</div>
+
 			<div class="table-container">
 				<table class="simple-table">
 					<thead class="simple-table-header">
@@ -987,6 +987,9 @@
 					</tbody>
 				</table>
 	
+				<div id="no-results" class="no-results" style="display: none;">
+					No se encontraron países que coincidan con tu búsqueda.
+				</div>
 			</div>
 		</div>
 	

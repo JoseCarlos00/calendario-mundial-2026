@@ -1,3 +1,10 @@
-import { main } from "./insertFlags.js";
+import { main as insertFlags } from './insertFlags.js';
+import { setupFilter } from './filter.js';
 
-// window.addEventListener('load', main);
+
+
+window.addEventListener('load', () => {
+	// insertFlags();
+
+	setupFilter();
+});
