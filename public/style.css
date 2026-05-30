@@ -27,10 +27,18 @@
 	border-radius: 20px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(var(--white-rgb), 0.32);
+}
+
+
+
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -45,11 +53,12 @@ body {
 
 .container-principal {
 	position: relative;
-	width:100vw;
+	width: 100%;
+	margin: 0 auto;
+
 	max-width: 800px;
 	height: 100vh;
 
-	margin: 20px auto 50px auto;
 	background-color: #010409;
 
 	display: flex;
@@ -115,7 +124,7 @@ body {
 	background-color: var(--bg-page);
 	border-radius: 4px;
 
-	height: calc(100vh - 50px - var(--height-header));
+	height: calc(100vh - 80px - var(--height-header));
 	overflow: auto; /* Permite scroll tanto vertical como horizontal */
 }
 
@@ -167,8 +176,30 @@ tr.group-color:hover, tr:hover {
 
 /* FECHA*/
 :is(td, th):nth-child(1) {
-	width: 200px;
-	white-space: nowrap;
+    width: 200px;
+    white-space: nowrap;
+    
+    /* Fijar columna */
+    position: sticky;
+    left: -1px;
+    z-index: 2;
+    background-color: var(--bg-page);
+}
+
+/* Asegurar que el encabezado de la fecha esté por encima de todo */
+thead th:nth-child(1) {
+    z-index: 3;
+}
+
+/* Mantener los colores de las filas especiales en la columna fija */
+tr.group-color td:nth-child(1) {
+    background-color: #283546;
+}
+
+/* Mantener el efecto hover en la columna fija */
+tr.group-color:hover td:nth-child(1), 
+tr:hover td:nth-child(1) {
+    background-color: #202934;
 }
 
 /* HORA*/
@@ -233,6 +264,11 @@ tr.group-color:hover, tr:hover {
 	:is(td, th):nth-child(1) {
 		width: 120px;
 		white-space: normal;
+	}
+
+	/* Ocultamos la columna JORNADA en móviles */
+	:is(td, th):nth-child(3) {
+		display: none;
 	}
 
 	/* Ajustamos los nombres de los equipos para que no ocupen tanto */

@@ -4,7 +4,6 @@ import { setupFilter } from './filter.js';
 
 
 window.addEventListener('load', () => {
-	// insertFlags();
-
+	insertFlags();
 	setupFilter();
 });
