@@ -32,7 +32,7 @@ function insertFlag(element, country) {
 	element.appendChild(img);
 }
 
-function main() {
+export  function main() {
 	const rows = document.querySelectorAll('tbody tr');
 
 	rows.forEach((tr) => {
@@ -48,5 +48,3 @@ function main() {
 		insertFlag(contraValueE, contraValue);
 	});
 }
-
-window.addEventListener('load', main);
