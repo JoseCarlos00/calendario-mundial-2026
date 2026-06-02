@@ -1,10 +1,10 @@
 import { countries } from './countries.js';
 
-const VERSUS_INDEX = 4;
-const CONTRA_INDEX = 8;
+const VERSUS_INDEX = 5;
+const CONTRA_INDEX = 9;
 
-const VERSUS_E_INDEX = 5;
-const CONTRA_E_INDEX = 7;
+const VERSUS_E_INDEX = 6;
+const CONTRA_E_INDEX = 8;
 
 function getFlag(countryName) {
 	const code = countries[countryName.toLowerCase()];
