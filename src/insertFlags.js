@@ -1,10 +1,5 @@
 import { countries } from './countries.js';
-
-const VERSUS_INDEX = 5;
-const CONTRA_INDEX = 9;
-
-const VERSUS_E_INDEX = 6;
-const CONTRA_E_INDEX = 8;
+import { VERSUS_INDEX, CONTRA_INDEX, VERSUS_FLAG_INDEX, CONTRA_FLAG_INDEX } from './constants.js';
 
 function getFlag(countryName) {
 	const code = countries[countryName.toLowerCase()];
@@ -40,8 +35,8 @@ export  function main() {
 		const contraValue = row.cells[CONTRA_INDEX]?.textContent;
 
 
-		const versusValueE = row.cells[VERSUS_E_INDEX];
-		const contraValueE = row.cells[CONTRA_E_INDEX];
+		const versusValueE = row.cells[VERSUS_FLAG_INDEX];
+		const contraValueE = row.cells[CONTRA_FLAG_INDEX];
 
 		if (!versusValue || !contraValue || !versusValueE || !contraValueE) return;
 

@@ -1,0 +1,12 @@
+export const ROW_NUM_INDEX = 0;
+export const FECHA_INDEX = 1;
+export const HORA_INDEX = 2;
+export const JORNADA_INDEX = 3;
+export const GRUPO_INDEX = 4;
+export const VERSUS_INDEX = 5;
+export const VERSUS_FLAG_INDEX = 6;
+export const VS_INDEX = 7;
+export const CONTRA_FLAG_INDEX = 8;
+export const CONTRA_INDEX = 9;
+export const ESTADIO_INDEX = 10;
+export const CIUDAD_INDEX = 11;

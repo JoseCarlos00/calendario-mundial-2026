@@ -1,5 +1,7 @@
+import { FECHA_INDEX } from './constants.js';
+
 export function setupResponsiveDates() {
-	const dateCells = document.querySelectorAll('.simple-table tbody td:nth-child(1)');
+	const dateCells = document.querySelectorAll(`table tbody tr td:nth-child(${FECHA_INDEX + 1})`);
 
 	dateCells.forEach((cell) => {
 		const originalText = cell.textContent.replace(/\s+/g, ' ').trim();
