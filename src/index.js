@@ -4,7 +4,7 @@ import { setupResponsiveDates } from './responsiveDates.js';
 
 
 window.addEventListener('load', () => {
-	// insertFlags();
+	insertFlags();
 	setupResponsiveDates();
 	setupFilter();
 });
