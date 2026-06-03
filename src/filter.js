@@ -7,12 +7,16 @@ const inputCountry = document.getElementById('country-filter');
 const inputGroup = document.getElementById('group-filter');
 
 export function setupFilter() {
+	console.log('Setting up filters...');
 	filterCountries();
 	filterGroups();
 }
 
 function filterCountries() {
-		if (!inputCountry) return;
+		if (!inputCountry){
+			error('No se encontró el elemento de filtro de país');
+			return;
+		}
 
 		// Función auxiliar para normalizar texto (quitar acentos y pasar a minúsculas)
 		const normalizeText = (str) =>
@@ -46,7 +50,10 @@ function filterCountries() {
 }
 
 function filterGroups() {
-	if (!inputGroup) return;
+	if (!inputGroup) {
+		error('No se encontró el elemento de filtro de grupo');
+		return;
+	}
 
 	inputGroup.addEventListener('input', () => {
 		inputCountry.value = '';
