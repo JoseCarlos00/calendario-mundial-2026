@@ -15,8 +15,8 @@ export function setupFilter() {
 
 		tableRows.forEach((row) => {
 			// Obtenemos el texto de las columnas de los equipos (índices 4 y 8)
-			const team1 = normalizeText(row.cells[4]?.textContent);
-			const team2 = normalizeText(row.cells[8]?.textContent);
+			const team1 = normalizeText(row.cells[5]?.textContent);
+			const team2 = normalizeText(row.cells[9]?.textContent);
 
 			if (team1.includes(searchTerm) || team2.includes(searchTerm)) {
 				row.style.display = '';
