@@ -13,6 +13,11 @@ let indexPartido = 1
 const tbody = document.querySelector('tbody');
 
 export async function insertContent() {
+  const dateNow = new Intl.DateTimeFormat('es-MX', {
+		day: 'numeric',
+		month: 'short',
+		timeZone: 'America/Mexico_City',
+	}).format(new Date());
 
   await insertData(fetchStageGroup);
 	
@@ -46,20 +51,22 @@ export async function insertContent() {
   tbody.appendChild(trFinal);
   await insertData(fetchFinal);
 
-}
+  async function insertData(url) {
+		const data = await getData(url);
 
-async function insertData(url) {
-  const data = await getData(url);
+		data.forEach((item) => {
+			const tr = document.createElement('tr');
 
-	data.forEach((item) => {
-		const tr = document.createElement('tr');
+      if (item.fecha.shortDate === dateNow) {
+        tr.classList.add('group-color');
+      }
 
-    const img = (src, alt) => `<img
+			const img = (src, alt) => `<img
           src=${src}
           alt = 'Bandera de ${alt}'
-        />`
+        />`;
 
-		tr.innerHTML = `
+			tr.innerHTML = `
       <td style="font-size: 12px;">${indexPartido++}</td>
       <td>
         <span class="date-full">${item.fecha.longDate}</span>
@@ -88,6 +95,7 @@ async function insertData(url) {
       <td>${item.estadio.city}</td>
     `;
 
-		tbody.appendChild(tr);
-	});
+			tbody.appendChild(tr);
+		});
+	}
 }
