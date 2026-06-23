@@ -1,7 +1,6 @@
 import {CONTRA_INDEX, VERSUS_INDEX, GRUPO_INDEX } from './constants.js';
 
 const noResultsMessage = document.getElementById('no-results');
-const tableRows = document.querySelectorAll('table tbody tr');
 
 const inputCountry = document.getElementById('country-filter');
 const inputGroup = document.getElementById('group-filter');
@@ -9,10 +8,12 @@ const inputGroup = document.getElementById('group-filter');
 export function setupFilter() {
 	console.log('Setting up filters...');
 	filterCountries();
-	filterGroups();
+	// filterGroups();
 }
 
 function filterCountries() {
+	const tableRows = document.querySelectorAll('table tbody tr');
+
 		if (!inputCountry){
 			error('No se encontró el elemento de filtro de país');
 			return;
@@ -25,12 +26,14 @@ function filterCountries() {
 				.replace(/[\u0300-\u036f]/g, '')
 				.toLowerCase();
 
+
 		inputCountry.addEventListener('input', () => {
 			inputGroup.value = '';
 			const searchTerm = normalizeText(inputCountry.value);
 			let hasResults = false;
 
 			tableRows.forEach((row) => {
+				
 				// Obtenemos el texto de las columnas de los equipos (índices 4 y 8)
 				const team1 = normalizeText(row.cells[VERSUS_INDEX]?.textContent);
 				const team2 = normalizeText(row.cells[CONTRA_INDEX]?.textContent);
@@ -50,6 +53,8 @@ function filterCountries() {
 }
 
 function filterGroups() {
+	const tableRows = document.querySelectorAll('table tbody tr');
+
 	if (!inputGroup) {
 		error('No se encontró el elemento de filtro de grupo');
 		return;
