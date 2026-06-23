@@ -170,6 +170,15 @@ tr:hover {
 	background-color: #202934;
 }
 
+td .versus {
+	display: flex;
+	gap: 12px;
+	
+	span {
+		min-width: 8px;
+	}
+}
+
 .date-short {
 	display: none;
 }
@@ -203,9 +212,9 @@ tr:hover td:nth-child(2) {
 	background-color: #202934;
 }
 
-:is(td, th):nth-child(1) {
+/* :is(td, th):nth-child(1) {
 	display: none;
-}
+} */
 
 /* HORA*/
 :is(td, th):nth-child(3) {
@@ -213,32 +222,29 @@ tr:hover td:nth-child(2) {
 	white-space: nowrap;
 }
 
-/* JORNADA*/
-:is(td, th):nth-child(4) {
-	width: 90px;
-}
+
 /* GRUPO*/
-:is(td, th):nth-child(5) {
+:is(td, th):nth-child(4) {
 	width: 90px;
 }
 
 /* 1VS*/
 /* 2VS*/
-:is(td, th):nth-child(6),
-:is(td, th):nth-child(10) {
+:is(td, th):nth-child(5),
+:is(td, th):nth-child(9) {
 	width: 180px;
 	white-space: nowrap;
 }
 
 /* 1IMG*/
 /* 2IMG*/
-:is(td, th):nth-child(7),
-:is(td, th):nth-child(9) {
+:is(td, th):nth-child(6),
+:is(td, th):nth-child(8) {
 	width: 20px;
 }
 
 /* PARTIDO*/
-:is(td, th):nth-child(8) {
+:is(td, th):nth-child(7) {
 	width: 35px;
 }
 
@@ -280,14 +286,10 @@ tr:hover td:nth-child(2) {
 		text-transform: capitalize;
 	}
 
-	/* Ocultamos la columna JORNADA en móviles */
-	:is(td, th):nth-child(4) {
-		display: none;
-	}
 
 	/* Ajustamos los nombres de los equipos para que no ocupen tanto */
-	:is(td, th):nth-child(6),
-	:is(td, th):nth-child(10) {
+	:is(td, th):nth-child(5),
+	:is(td, th):nth-child(9) {
 		width: 120px;
 	}
 }
