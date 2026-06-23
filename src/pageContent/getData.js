@@ -1,9 +1,7 @@
 import { mapCountries } from "./mapCountries.js";
 
-export async function getData() {
-	const response = await fetch(
-		'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260622-20260629',
-	);
+export async function getData(url) {
+	const response = await fetch(url);
 
 	const data = await response.json();
 

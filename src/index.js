@@ -1,10 +1,7 @@
-import { main as insertFlags } from './insertFlags.js';
 import { setupFilter } from './filter.js';
-import { setupResponsiveDates } from './responsiveDates.js';
+import { insertContent } from "./pageContent/insertContent.js";
 
-
-window.addEventListener('load', () => {
-	insertFlags();
-	setupResponsiveDates();
+window.addEventListener('load', async () => {
+	await insertContent()
 	setupFilter();
 });
