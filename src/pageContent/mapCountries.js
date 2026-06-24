@@ -12,7 +12,7 @@ export const mapCountries = new Map([
 	['Brazil', 'BRASIL'],
 	['Morocco', 'MARRUECOS'],
 	['Haiti', 'HAITÍ'],
-	['ESCOCIA', 'ESCOCIA'],
+	['Scotland', 'ESCOCIA'],
 	['Australia', 'AUSTRALIA'],
 	['Türkiye', 'TURQUIA'],
 	['Germany', 'ALEMANIA'],
