@@ -338,3 +338,8 @@ tr:hover td:nth-child(2) {
 		background-color: #283546;
 	}
 }
+
+.loser {
+	text-decoration: line-through;
+  color: #baa9a9;
+}

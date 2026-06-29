@@ -6,10 +6,13 @@ export async function getData(url) {
 	const data = await response.json();
 
 	return data.events.map((event) => {
-    const teamLocal = event.competitions[0].competitors.find((t) => t.homeAway === 'home').team;
+		const homeCompetitor = event.competitions[0].competitors.find((t) => t.homeAway === 'home');
+		const awayCompetitor = event.competitions[0].competitors.find((t) => t.homeAway === 'away');
+
+    const teamLocal = homeCompetitor.team;
 		const localName = mapCountries.get(teamLocal.displayName) ?? teamLocal.displayName;
 
-    const teamVisitante = event.competitions[0].competitors.find((t) => t.homeAway === 'away').team;
+    const teamVisitante = awayCompetitor.team;
 		const visitanteName = mapCountries.get(teamVisitante.displayName) ?? teamVisitante.displayName;
 
 		const season = event.season.slug;
@@ -21,33 +24,16 @@ export async function getData(url) {
 
 		const fechaApi = event.date;
 		const fecha = new Date(fechaApi);
+		const { longDate, shortDate, timeDate } = parseDate(fecha)
 
-		const longDate = new Intl.DateTimeFormat('es-MX', {
-			weekday: 'long',
-			day: 'numeric',
-			month: 'long',
-			timeZone: 'America/Mexico_City',
-		}).format(fecha);
-
-    const shortDate = new Intl.DateTimeFormat('es-MX', {
-			day: 'numeric',
-			month: 'short',
-			timeZone: 'America/Mexico_City',
-		}).format(fecha);
-
-		const timeDate = new Intl.DateTimeFormat('es-MX', {
-			hour: '2-digit',
-			minute: '2-digit',
-			hour12: false,
-			timeZone: 'America/Mexico_City',
-		}).format(fecha);
+		
 
     const status = event.status.type.description;
     const isFulltime = status === 'Full Time';
     const isScheduled = status === 'Scheduled';
 
-    const marcadorLocal = isScheduled ? '-' : event.competitions[0].competitors.find((t) => t.homeAway === 'home').score;
-    const marcadorVisitante = isScheduled ? '-' : event.competitions[0].competitors.find((t) => t.homeAway === 'away').score;
+    const marcadorLocal = isScheduled ? '-' : homeCompetitor.score;
+    const marcadorVisitante = isScheduled ? '-' : awayCompetitor.score;
 
     const contentSts = isFulltime ? 'FT' : isScheduled ? 'VS' : event.status.displayClock;
 
@@ -72,6 +58,37 @@ export async function getData(url) {
 			},
 			group: altGameNote,
 			contentSts,
+			localAdvance: homeCompetitor.advance,
+			visitanteAdvance: awayCompetitor.advance,
 		};
 	});
+}
+
+
+function parseDate(date) {
+	const longDate = new Intl.DateTimeFormat('es-MX', {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'long',
+		timeZone: 'America/Mexico_City',
+	}).format(date);
+
+	const shortDate = new Intl.DateTimeFormat('es-MX', {
+		day: 'numeric',
+		month: 'short',
+		timeZone: 'America/Mexico_City',
+	}).format(date);
+
+	const timeDate = new Intl.DateTimeFormat('es-MX', {
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false,
+		timeZone: 'America/Mexico_City',
+	}).format(date);
+
+	return {
+		longDate,
+		shortDate,
+		timeDate
+	}
 }
