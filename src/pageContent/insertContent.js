@@ -30,7 +30,7 @@ export async function insertContent() {
   
   const trRoundOf16 = document.createElement('tr')
   trRoundOf16.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Octavos de final</td></tr>`;
-  indexPartido+=88
+  indexPartido=88
   tbody.appendChild(trRoundOf16);
   await insertData(fetchRoundOf16);
   
