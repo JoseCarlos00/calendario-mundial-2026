@@ -8,7 +8,7 @@ const fetchSemifinals = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fi
 const fetch3rdPlace = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260718'
 const fetchFinal = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260719';
 
-let indexPartido = 1
+let indexPartido = 89
 
 const tbody = document.querySelector('tbody');
 
@@ -30,7 +30,6 @@ export async function insertContent() {
   
   const trRoundOf16 = document.createElement('tr')
   trRoundOf16.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Octavos de final</td></tr>`;
-  indexPartido=88
   tbody.appendChild(trRoundOf16);
   await insertData(fetchRoundOf16);
   
