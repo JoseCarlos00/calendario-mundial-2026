@@ -20,19 +20,23 @@ export async function insertContent() {
 	}).format(new Date());
 
   // await insertData(fetchStageGroup, false);
+  // +72
 	
   // const trRoundOf32 = document.createElement('tr')
   // trRoundOf32.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Ronda de 32</td></tr>`
+  // +88
   // tbody.appendChild(trRoundOf32)
   // await insertData(fetchRoundOf32);
-
+  
   const trRoundOf16 = document.createElement('tr')
   trRoundOf16.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Octavos de final</td></tr>`;
+  indexPartido+=88
   tbody.appendChild(trRoundOf16);
   await insertData(fetchRoundOf16);
-
+  
   const trQuarterfinals = document.createElement('tr')
   trQuarterfinals.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Cuartos de final</td></tr>`;
+  // +98
   tbody.appendChild(trQuarterfinals);
   await insertData(fetchQuarterfinals);
 
