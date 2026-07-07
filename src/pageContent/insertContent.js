@@ -19,12 +19,12 @@ export async function insertContent() {
 		timeZone: 'America/Mexico_City',
 	}).format(new Date());
 
-  await insertData(fetchStageGroup, false);
+  // await insertData(fetchStageGroup, false);
 	
-  const trRoundOf32 = document.createElement('tr')
-  trRoundOf32.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Ronda de 32</td></tr>`
-  tbody.appendChild(trRoundOf32)
-  await insertData(fetchRoundOf32);
+  // const trRoundOf32 = document.createElement('tr')
+  // trRoundOf32.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Ronda de 32</td></tr>`
+  // tbody.appendChild(trRoundOf32)
+  // await insertData(fetchRoundOf32);
 
   const trRoundOf16 = document.createElement('tr')
   trRoundOf16.innerHTML = `<tr><td colspan="11" style="font-weight: bold; background-color: #880606;">Octavos de final</td></tr>`;
